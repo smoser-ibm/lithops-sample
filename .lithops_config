@@ -1,0 +1,23 @@
+lithops:
+    storage_bucket: lithops-bucket-sdm
+    storage: ibm_cos
+    mode: serverless
+    log_level: INFO
+    data_cleaner: false
+
+ibm_cos:
+    region: eu-de
+    endpoint: s3.fra.eu.cloud-object-storage.appdomain.cloud
+    private_endpoint: s3.private.fra.eu.cloud-object-storage.appdomain.cloud
+
+ibm:
+    iam_api_key: <add me by creating an API Key in your IBM Cloud Account>
+
+serverless:
+    backend: code_engine
+    runtime: ibmfunctions/lithops-ce-v385:233
+    runtime_memory: 1000
+    runtime_timeout: 18000
+
+code_engine:
+    kubecfg_path: <add me using ibmcloud ce project current as described in https://github.com/lithops-cloud/lithops/blob/master/config/compute/code_engine.md>
